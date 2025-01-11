@@ -14,8 +14,17 @@ export class User {
   @Prop({ required: true })
   password: string;
 
+  @Prop({ required: true, unique: true })
+  phone: string; 
+
   @Prop({ default: 'user' })
-  role: string; // user, admin, etc.
+  role: string;
+
+  @Prop({ required: false })
+  resetCode?: string;
+
+  @Prop({ required: false })
+  resetCodeExpiresAt?: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

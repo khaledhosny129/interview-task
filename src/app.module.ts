@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import * as mongoose from 'mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { TwilioModule } from './twilio/twilio.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     ]),
     UserModule,
     AuthModule,
+    TwilioModule
   ],
   controllers: [AppController],
   providers: [AppService],

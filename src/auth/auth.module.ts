@@ -7,6 +7,8 @@ import { User, UserSchema } from 'src/user/schema/user.schema';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TwilioModule } from 'src/twilio/twilio.module';
+import { TwilioService } from 'src/twilio/twilio.service';
 
 @Module({
   imports: [
@@ -21,6 +23,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
     PassportModule,
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    TwilioModule
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
